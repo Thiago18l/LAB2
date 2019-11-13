@@ -16,7 +16,7 @@ public class Hatch extends AluguelAut {
 	
 	@Override
 	public String toString() {
-		return String.format("Veiculo -> Hatch:\n Informa��es:\n Valor da diaria: R$ "+this.getVdiaV()+"\n Destino: "+this.getDestino()+"\n Finalidade: "+this.finalidade+
+		return String.format("Veiculo -> Hatch:\n Informações:\n Valor da diaria: R$ "+this.getVdiaV()+"\n Destino: "+this.getDestino()+"\n Finalidade: "+this.finalidade+
 				"\n Hora e Data: "+this.getHora()+" / "+this.getData()+" \n Placa do veiculo: "+this.getPlaca()+"\n Quantidade de dias Alugado: "+this.getQuantidadeDias()+" Dias"
 				);
 	}
@@ -24,12 +24,13 @@ public class Hatch extends AluguelAut {
 	@Override
 	public void CondicaoV(int condicao) {
 		if(condicao == 10) {
-			System.out.println("Condi��o do Veiculo � igual as condi��es quando foi colocado.");
+			System.out.println("Condição do Veiculo é igual as condições quando foi colocado.");
 		}
 		else if (condicao != 10) {
-			System.out.println("A condi��o do veiculo n�o est� em perfeitas condi��es.");
+			System.out.println("A condição do veiculo não esta em perfeitas condições.");
 		}
 	}
+	@Override
 	public void Devolucao() {
 			
 	}
