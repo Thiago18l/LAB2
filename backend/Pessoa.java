@@ -4,8 +4,6 @@ public abstract class Pessoa {
 	protected String nome;
 	protected String end;
 	
-	
-	
 	public Pessoa(String nome) {
 		setNome(nome);
 	}
@@ -20,7 +18,6 @@ public abstract class Pessoa {
 		setEnd(end);
 		
 	}
-	
 	
 	public String getNome() {
 		return nome;

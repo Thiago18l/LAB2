@@ -1,6 +1,6 @@
 public class Minivan extends AluguelAut {
 
-    private double vdiaria = 140,00;
+    private double vdiaria = 140.00;
 
     public Minivan(){
         super();
@@ -37,4 +37,5 @@ public class Minivan extends AluguelAut {
         "\n Hora e Data: "+this.getHora()+" / "+this.getData()+" \n Placa do veiculo: "+this.getPlaca()+"\n Quantidade de dias Alugado: "+this.getQuantidadeDias()+" Dias"
         );
 
+}
 }

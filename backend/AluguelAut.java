@@ -1,6 +1,7 @@
 
 public abstract class AluguelAut implements Locacao{
 	
+	protected Cliente clientes;
 	protected String data;
 	protected String hora;
 	protected String placa;
@@ -26,13 +27,20 @@ public abstract class AluguelAut implements Locacao{
 		setFinalidade(finalidade);
 		setPlaca(placa);
 		setQuantidadeDias(quantidadedeDias);
+		setCliente(clientes);
 		
 		
 	}
 	
 	public abstract void CondicaoV(int condicao);
 	public abstract void Devolucao();
-	
+
+	public void setCliente(Cliente clientes){
+		this.clientes = clientes;
+	}
+	public Cliente getCliente(){
+		return this.clientes;
+	}
 	public String getPlaca() {
 		return placa;
 	}
