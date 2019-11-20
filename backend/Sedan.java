@@ -26,9 +26,9 @@ public class Sedan extends AluguelAut {
 	}
 
 	@Override
-	public double ValorAlguel() {
+	public double  ValorAluguel() {
 			
-			int nvalor = valor*0.10;
+			double nvalor = this.valor*0.10;
 			return nvalor;
 	
 	}

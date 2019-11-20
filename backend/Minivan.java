@@ -24,9 +24,9 @@ public class Minivan extends AluguelAut {
 			
     }
     @Override
-	public double ValorAlguel() {
+	public double ValorAluguel() {
 			
-			int nvalor = valor*0.25;
+			double nvalor = valor*0.25;
 			return nvalor;
 	
 	}

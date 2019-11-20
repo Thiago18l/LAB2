@@ -1,9 +1,11 @@
 
-public interface Locacao {
+public interface Locação {
 
 	public abstract void CondicaoV(int condicao);
 	public abstract void Devolucao();
-	public abstract void ValorAluguel();
+	public abstract double ValorAluguel();
+
+
 	
 	
 	

@@ -23,7 +23,7 @@ public class Menu {
         catch(InterruptedException e){
             System.out.println(e.getMessage());
         }
-        int i = 0;
+        
         int opcao=0;
         do {
             System.out.println("-------------------MENU------------------------");

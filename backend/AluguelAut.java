@@ -38,8 +38,11 @@ public abstract class AluguelAut implements Locacao{
 	
 	public abstract void CondicaoV(int condicao);
 	public abstract void Devolucao();
-	public  void ValorAluguel(){
-		System.out.println("Valor padrão de veiculo por dia é:"+this.valor);
+	public  double ValorAluguel(){
+		return this.valor;
+	}
+	public double getValor(){
+		return this.valor;
 	}
 
 

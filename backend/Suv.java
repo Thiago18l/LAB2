@@ -24,9 +24,9 @@ public class Suv extends AluguelAut{
 			
     }
     @Override
-	public double ValorAlguel() {
+	public double ValorAluguel() {
 			
-			int nvalor = valor*0.15;
+			double nvalor = valor*0.15;
 			return nvalor;
 	
 	}

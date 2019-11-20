@@ -16,8 +16,7 @@ public class Hatch extends AluguelAut {
 
 	@Override
 	public String toString() {
-		return String.format("Veiculo -> Hatch:\n Informações:\n Valor da diaria: R$ " + this.getVdiaV()
-				+ "\n Destino: " + this.getDestino() + "\n Finalidade: " + this.finalidade + "\n Hora e Data: "
+		return String.format("Veiculo -> Hatch:\n Informações:\n Valor da diaria: R$ " +"\n Destino: " + this.getDestino() + "\n Finalidade: " + this.finalidade + "\n Hora e Data: "
 				+ this.getHora() + " / " + this.getData() + " \n Placa do veiculo: " + this.getPlaca()
 				+ "\n Quantidade de dias Alugado: " + this.getQuantidadeDias() + " Dias");
 	}
@@ -31,8 +30,9 @@ public class Hatch extends AluguelAut {
 		}
 	}
 	@Override
-	public void ValorAluguel() {
-		super.ValorAluguel();
+	public double ValorAluguel() {
+		return super.getValor();
+		
 	}
 
 	@Override
