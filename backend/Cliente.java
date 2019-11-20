@@ -9,9 +9,13 @@ public class Cliente extends Pessoa {
 
 	}
 
-	public Cliente(String nome, String end, int cpf, int cnpj) {
-		super(nome, end);
+	public Cliente(String nome, int cnpj) {
+		super(nome);
 		setCnpj(cnpj);
+	}
+
+	public Cliente(String nome, String end, int cpf) {
+		super(nome, end);
 		setCpf(cpf);
 
 	}
@@ -31,7 +35,7 @@ public class Cliente extends Pessoa {
 	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Cliente [Codigo do Cliente=" + codCliente + " Nome do Cliente: " + this.getNome()

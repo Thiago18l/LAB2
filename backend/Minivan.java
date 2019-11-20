@@ -23,6 +23,13 @@ public class Minivan extends AluguelAut {
 	public void Devolucao() {
 			
     }
+    @Override
+	public double ValorAlguel() {
+			
+			int nvalor = valor*0.25;
+			return nvalor;
+	
+	}
 
 
     public void setVdiaria(double vdiaria){

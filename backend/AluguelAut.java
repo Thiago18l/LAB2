@@ -1,4 +1,5 @@
 
+
 public abstract class AluguelAut implements Locacao{
 	
 	protected Cliente clientes;
@@ -8,6 +9,9 @@ public abstract class AluguelAut implements Locacao{
 	protected String destino;
 	protected String finalidade;
 	protected int quantidadeDias;
+	protected final double valor = 75.00;
+
+	
 	
 	
 
@@ -34,6 +38,10 @@ public abstract class AluguelAut implements Locacao{
 	
 	public abstract void CondicaoV(int condicao);
 	public abstract void Devolucao();
+	public  void ValorAluguel(){
+		System.out.println("Valor padrão de veiculo por dia é:"+this.valor);
+	}
+
 
 	public void setCliente(Cliente clientes){
 		this.clientes = clientes;

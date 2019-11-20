@@ -22,6 +22,13 @@ public class Suv extends AluguelAut{
 	@Override
 	public void Devolucao() {
 			
+    }
+    @Override
+	public double ValorAlguel() {
+			
+			int nvalor = valor*0.15;
+			return nvalor;
+	
 	}
 
     public void setVdiaria(double vdiaria){
