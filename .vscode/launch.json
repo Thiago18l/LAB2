@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Menu",
+            "request": "launch",
+            "mainClass": "Menu",
+            "projectName": "LAB2_ed4a31a8"
+        }
+    ]
+}
