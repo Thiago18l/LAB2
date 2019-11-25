@@ -4,6 +4,10 @@ public class Menu {
     public static void main(String[] args) {
         ArrayList<Cliente> clientes = new ArrayList<>();
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        String nome, data, end;
+        int cod, salario;
+
+        
 
         Scanner entrada = new Scanner(System.in);
         System.out.println("-------------------SYSTEM loCAR-------------------------------");
@@ -23,7 +27,7 @@ public class Menu {
         catch(InterruptedException e){
             System.out.println(e.getMessage());
         }
-        
+
         int opcao=0;
         do {
             System.out.println("-------------------MENU------------------------");
@@ -41,19 +45,28 @@ public class Menu {
             case 1:
 
                 System.out.println("------------Cadastro de Funcionarios-----------------");
-
-                System.out.println("Digite o nome do funcionario:");
-                String nome = entrada.next();
-                System.out.println("Digite o Código do funcionario:");
-                int cod = entrada.nextInt();
-                System.out.println("Digite o endereço:");
-                String end = entrada.next();
-                System.out.println("Data que foi contratado:");
-                String data = entrada.next();
-                System.out.println("Digite a remuneração do Funcionario:");
-                int salario = entrada.nextInt();
-
-                funcionarios.add(new Funcionario(nome, end, salario, data, cod));
+                try{
+                    System.out.println("Digite o nome do funcionario:");
+                        nome = entrada.next();
+                    System.out.println("Digite o Código do funcionario:");
+                        cod = entrada.nextInt();
+                    System.out.println("Digite o endereço:");
+                        end = entrada.next();
+                    System.out.println("Data que foi contratado:");
+                        data = entrada.next();
+                    System.out.println("Digite a remuneração do Funcionario:");
+                        salario = entrada.nextInt();
+                    funcionarios.add(new Funcionario(nome, end, salario, data, cod));
+                }
+                catch(InputMismatchException e){
+                    System.out.println(e.getMessage());
+                }
+                finally{
+                    for (Funcionario i : funcionarios){
+                        System.out.println(i);
+                    }
+                }
+                
 
                 break;
             case 2:
@@ -61,15 +74,30 @@ public class Menu {
                 System.out.println("O Cliente vai ser cadastrado com CPF ou CNPJ?");
                 System.out.println("Digite 1 Para CPF ou 2 para CNPJ.");
                 int num = entrada.nextInt();
+                int cpf;
                 if (num == 1) {
                     System.out.println("-------------------Cadastro de Pessoa Física----------------");
+                    
+                    try{
                     System.out.println("Digite o nome do cliente:");
                     nome = entrada.next();
                     System.out.println("Digite o endereço:");
                     end = entrada.next();
                     System.out.println("Digite o CPF:");
-                    int cpf = entrada.nextInt();
-                    clientes.add(new Cliente(nome, end, cpf));
+                    cpf = entrada.nextInt();
+                    System.out.println("Digite o código que o Cliente irá receber:");
+                    cod = entrada.nextInt();
+                        clientes.add(new Cliente(nome, end, cpf,cod));
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
+                    finally{
+                        for (Cliente i : clientes){
+                            System.out.println(i);
+                        }
+                    }
+                   
                     break;
                 } else if (num == 2) {
                     System.out.println("-------------------Cadastro de Pessoa Juridica");
@@ -77,7 +105,20 @@ public class Menu {
                     nome = entrada.next();
                     System.out.println("Digite o CNPJ:");
                     int cnpj = entrada.nextInt();
-                    clientes.add(new Cliente(nome, cnpj));
+                    System.out.println("Digite o código que o Cliente irá receber:");
+                    cod = entrada.nextInt();
+                    try{
+                        clientes.add(new Cliente(nome, cnpj, cod));
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
+                    finally{
+                        for (Cliente i : clientes){
+                            System.out.println(i);
+                        }    
+                    }
+                    
                     break;
                 }
                 break;

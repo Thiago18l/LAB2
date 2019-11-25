@@ -9,14 +9,16 @@ public class Cliente extends Pessoa {
 
 	}
 
-	public Cliente(String nome, int cnpj) {
+	public Cliente(String nome, int cnpj, int codCliente) {
 		super(nome);
 		setCnpj(cnpj);
+		setCodCliente(codCliente);
 	}
 
-	public Cliente(String nome, String end, int cpf) {
+	public Cliente(String nome, String end, int cpf, int codCliente) {
 		super(nome, end);
 		setCpf(cpf);
+		setCodCliente(codCliente);
 
 	}
 
@@ -38,8 +40,8 @@ public class Cliente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Cliente [Codigo do Cliente=" + codCliente + " Nome do Cliente: " + this.getNome()
-				+ " Endereço do Cliente: " + this.getEnd() + "]";
+		return "Cliente \nCodigo do Cliente=" + codCliente + " Nome do Cliente: " + this.getNome()
+				+ " Endereço do Cliente: " + this.getEnd();
 	}
 
 }
