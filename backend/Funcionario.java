@@ -3,13 +3,13 @@ public class Funcionario extends Pessoa {
 
 	private int salario;
 	private String data;
-	private int codFun;
+	private String codFun;
 
 	public Funcionario() {
 
 	}
 
-	public Funcionario(String nome, String end, int salario, String data, int codFun) {
+	public Funcionario(String nome, String end, int salario, String data, String codFun) {
 		super(nome, end);
 		setSalario(salario);
 		setCodFun(codFun);
@@ -41,11 +41,11 @@ public class Funcionario extends Pessoa {
 		this.data = data;
 	}
 
-	public int getCodFun() {
+	public String getCodFun() {
 		return codFun;
 	}
 
-	public void setCodFun(int codFun) {
+	public void setCodFun(String codFun) {
 		this.codFun = codFun;
 	}
 

@@ -1,41 +1,48 @@
 
 public class Cliente extends Pessoa {
 
-	protected int codCliente;
-	protected int cpf;
-	protected int cnpj;
+	protected String codCliente;
+	protected String cpf;
+	protected String cnpj;
 
 	public Cliente() {
 
 	}
 
-	public Cliente(String nome, int cnpj, int codCliente) {
+	public Cliente(String nome, String cnpj, String codCliente) {
 		super(nome);
 		setCnpj(cnpj);
 		setCodCliente(codCliente);
 	}
 
-	public Cliente(String nome, String end, int cpf, int codCliente) {
+	public Cliente(String nome, String end, String cpf, String codCliente) {
 		super(nome, end);
 		setCpf(cpf);
 		setCodCliente(codCliente);
 
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-	public int getCodCliente() {
-		return codCliente;
+	public String getCodCliente() {
+		return this.codCliente;
 	}
 
-	public void setCodCliente(int codCliente) {
+
+	public void setCodCliente(String codCliente) {
 		this.codCliente = codCliente;
+	}
+	public String getCpf(){
+		return this.cpf;
+	}
+	public String getCnpj(){
+		return this.cnpj;
 	}
 
 	@Override

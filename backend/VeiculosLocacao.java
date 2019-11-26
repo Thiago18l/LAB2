@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class VeiculosLocacao {
 
@@ -10,7 +10,7 @@ public class VeiculosLocacao {
     public VeiculosLocacao(String placa, String data){
         setData(data);
         setPlaca(placa);
-        ArrayList <Cliente> clientes = new ArrayList<>();
+        
 
     }
     
