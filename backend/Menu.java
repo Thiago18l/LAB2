@@ -14,7 +14,7 @@ public class Menu {
                     if (j == 0)
                         System.out.printf("  ");
                     System.out.printf("%c", 62);
-                    Thread.sleep(8);
+                    Thread.sleep(3);
                 }
             }
             System.out.println("\n\n\n ");
@@ -40,29 +40,54 @@ public class Menu {
             case 1:
 
                 System.out.println("------------Cadastro de Funcionarios-----------------");
-                try {
-                    novoCadastro.addFuncionario();
-                } catch (InputMismatchException e) {
-                    System.out.println(e.getMessage());
+                System.out.println("Para adicionar um novo Funcionario digite 1.");
+                System.out.println("Para remover algum funcionario da empresa digite 2.");
+                int n = entrada.nextInt();
+                if (n == 1) {
+                    try {
+                        novoCadastro.addFuncionario();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                if (n == 2) {
+                    novoCadastro.removeFun();
                 }
                 break;
             case 2:
-                System.out.println("--------------Cadastro de Clientes-------------------");
-                System.out.println("O Cliente vai ser cadastrado com CPF ou CNPJ?");
-                System.out.println("Digite 1 Para CPF ou 2 para CNPJ.");
+                System.out.println("--------------Cadastro de Clientes-------------------\n");
+                System.out.println("Bem vindo.");
+                System.out.printf("\n1- Cadastro Pessoa Física");
+                System.out.println("\t 2- Cadastro Pessoa Juridica");
+                System.out.printf("3- Remover um Cliente");
+                System.out.println("\t\t4- Atualizar dados do Cliente");
+                System.out.println("5- Retornar ao menu anterior");
+                System.out.printf("\nOpção:");
                 int num = entrada.nextInt();
+
                 if (num == 1) {
                     System.out.println("-------------------Cadastro de Pessoa Física----------------");
                     try {
                         novoCadastro.addClienteF();
                     } catch (InputMismatchException e) {
                         System.out.println(e.getMessage());
-                    } 
+                    }
                     break;
                 } else if (num == 2) {
                     System.out.println("-------------------Cadastro de Pessoa Juridica-------------------------------");
                     novoCadastro.addClienteJ();
+                } else if (num == 3) {
+                    System.out.println("------------------------REMOVER CLIENTES-----------------------------");
+                    System.out.println(
+                            "OBS: Para a remoção de clientes você tem que colocar o código do cliente seja ele\n Pessoa física ou Jurídica.");
+                    novoCadastro.remover();
+                }else if (num == 4){
+                    System.out.println("-------------------------ATUALIZAÇÃO DE DADOS----------------------------");
+                    novoCadastro.atualizaPf();
+                }else if (num == 5){
+                    break;
                 }
+
                 break;
             }
 

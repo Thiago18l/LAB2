@@ -14,9 +14,6 @@ public class Funcionario extends Pessoa {
 		setSalario(salario);
 		setCodFun(codFun);
 		setData(data);
-
-		
-
 	}
 
 	@Override
