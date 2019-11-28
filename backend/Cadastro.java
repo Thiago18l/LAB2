@@ -93,7 +93,32 @@ public class Cadastro {
                 break;
             }
         }
-    }
+    }// Fim do metodo Atualiza pessoa fisica
+
+    public void atualizaPj(){
+        String nome, cnpj, cod;
+        System.out.println("-----------------------ATUALIZAR INFORMAÇÕES--------------------");
+        System.out.println("Digite o código do Cliente:");
+        cod = entrada.nextLine();
+        for (int i = 0; i <clientes.size(); i++){
+            Cliente j = clientes.get(i);
+            if (j.getCodCliente().equals(cod)){
+                System.out.println("Informações:");
+                System.out.println("Nome:" + ((Juridica)j).getNome());
+                System.out.println("Código:" + ((Juridica)j).getCodCliente());
+                System.out.println("CNPJ:" + ((Juridica)j).getCnpj());
+                System.out.println("----------------------------------------------");
+                System.out.println("Novo Nome:");
+                nome = entrada.nextLine();
+                ((Juridica)j).setNome(nome);
+                System.out.println("Novo CNPJ:");
+                cnpj = entrada.nextLine();
+                ((Juridica)j).setCnpj(cnpj);
+                System.out.println("------------------------------------------");
+                clientes.set(i, j); // altera no indice 'i'
+            }   
+        }
+    }//fim do metodo atualiza pessoa juridica
 
     public void addFuncionario() {
         String nome, end, data, codFun;

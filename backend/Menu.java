@@ -83,7 +83,19 @@ public class Menu {
                     novoCadastro.remover();
                 }else if (num == 4){
                     System.out.println("-------------------------ATUALIZAÇÃO DE DADOS----------------------------");
-                    novoCadastro.atualizaPf();
+                    System.out.printf("1- Pessoa Física");
+                    System.out.println("\t\t2- Pessoa Juridica");
+                    System.out.println("Opção:");
+                    opcao = entrada.nextInt();
+                    switch(opcao){
+                        case 1:
+                        novoCadastro.atualizaPf();
+                        break;
+                        case 2:
+                        novoCadastro.atualizaPj();
+                        break;
+                    }
+                    
                 }else if (num == 5){
                     break;
                 }
