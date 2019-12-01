@@ -1,7 +1,7 @@
 
 public class Funcionario extends Pessoa {
 
-	private int salario;
+	private double salario;
 	private String data;
 	private String codFun;
 
@@ -9,7 +9,7 @@ public class Funcionario extends Pessoa {
 
 	}
 
-	public Funcionario(String nome, String end, int salario, String data, String codFun) {
+	public Funcionario(String nome, String end, double salario, String data, String codFun) {
 		super(nome, end);
 		setSalario(salario);
 		setCodFun(codFun);
@@ -18,15 +18,15 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Funcionario --- > Nome:" + this.getNome() + " Remuneração: " + this.getSalario() + " Endereço: "
-				+ this.getEnd() + " Data de entrada na loCAR:" + this.getData() + " ";
+		return "Funcionarios:\n Nome:"+this.getNome()+"\nEndereço:"+this.getEnd()+"\nRemuneração:"+this.getSalario()+
+		"\nData de entrada:"+this.getData()+"\nCódigo do Funcionario:"+this.getCodFun();
 	}
 
-	public int getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 
-	public void setSalario(int salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 

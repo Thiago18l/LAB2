@@ -40,8 +40,12 @@ public class Menu {
             case 1:
 
                 System.out.println("------------Cadastro de Funcionarios-----------------");
-                System.out.println("Para adicionar um novo Funcionario digite 1.");
-                System.out.println("Para remover algum funcionario da empresa digite 2.");
+                System.out.printf("1- Novo Funcionario");
+                System.out.printf("\t\t2- Remover Funcionario\n");
+                System.out.printf("3- Atualizar dados");
+                System.out.printf("\t\t4- Mostrar todos os Funcionarios\n");
+                System.out.println("5-Voltar ao menu anterior");
+                System.out.println("Opção:");
                 int n = entrada.nextInt();
                 if (n == 1) {
                     try {
@@ -50,9 +54,30 @@ public class Menu {
                         System.out.println(e.getMessage());
                     }
                 }
-                if (n == 2) {
-                    novoCadastro.removeFun();
-                }
+                else if (n == 2) {
+                    try{
+                        novoCadastro.removeFun();
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
+                 }else if (n == 3){
+                     try{
+                        novoCadastro.atualizaFun();
+                     }
+                     catch(InputMismatchException e){
+                         System.out.println(e.getMessage());
+                     }
+                     
+                 }else if (n == 4){
+                     try{
+                         novoCadastro.mostrarFun();
+                     }
+                     catch(InputMismatchException e){
+                         System.out.println(e.getMessage());
+                     }
+                 }
+                
                 break;
             case 2:
                 System.out.println("--------------Cadastro de Clientes-------------------\n");

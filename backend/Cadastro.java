@@ -119,10 +119,42 @@ public class Cadastro {
             }   
         }
     }//fim do metodo atualiza pessoa juridica
-
+    public void mostrarFun(){
+        for (Funcionario i : funcionarios){
+            System.out.println(i);
+        }
+    }
+    public void atualizaFun(){
+        String nome, end, codigo;
+        double salario; 
+        System.out.println("-------------------------ATUALIZAR DADOS FUNCIONARIO------------------------------");
+        System.out.println("Digite o Código do funcionario:");
+        codigo = entrada.nextLine();
+        for (int i = 0; i<funcionarios.size();i++){
+            Funcionario f = funcionarios.get(i);
+            if (f.getCodFun().equals(codigo)){
+                System.out.println("Informações:");
+                System.out.println("Nome:"+((Funcionario)f).getNome());
+                System.out.println("Endereço:"+((Funcionario)f).getEnd());
+                System.out.println("Remuneração atual:"+((Funcionario)f).getSalario());
+                System.out.println("Data de entrada:"+((Funcionario)f).getData());
+                System.out.println("---------------------------------------------------------------");
+                System.out.println("Novo nome:");
+                nome = entrada.nextLine();
+                ((Funcionario)f).setNome(nome);
+                System.out.println("Novo endereço:");
+                end = entrada.nextLine();
+                ((Funcionario)f).setEnd(end);
+                System.out.println("Nova remuneração:");
+                salario =  Double.parseDouble(entrada.nextLine());
+                ((Funcionario)f).setSalario(salario);
+                funcionarios.set(i,f);
+            }
+        }
+    }// Fim do metodo atualiza Funcionarios.
     public void addFuncionario() {
         String nome, end, data, codFun;
-        int salario;
+        double salario;
         int i = 0;
 
         Funcionario[] fun = new Funcionario[i + 1];
@@ -141,7 +173,7 @@ public class Cadastro {
         codFun = entrada.nextLine();
         ((Funcionario) fun[i]).setCodFun(codFun);
         System.out.println("Remuneração:");
-        salario = Integer.parseInt(entrada.nextLine());
+        salario = Double.parseDouble(entrada.nextLine());
         ((Funcionario) fun[i]).setSalario(salario);
 
         funcionarios.add(fun[i]);
