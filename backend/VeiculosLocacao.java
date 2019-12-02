@@ -3,17 +3,24 @@
 public class VeiculosLocacao {
 
     protected String data;
-    protected double valor;
-    protected Cliente clientes;
+    protected int dias;
+    protected double valor = 75.00;
     protected String placa;
 
+    public VeiculosLocacao(){
+
+    }
     public VeiculosLocacao(String placa, String data){
         setData(data);
         setPlaca(placa);
-        
 
     }
-    
+    public void setDias(int dias){
+        this.dias = dias;
+    }
+    public int getDias(){
+        return this.dias;
+    }
     public void setData(String data){
         this.data = data;
     }
@@ -26,10 +33,6 @@ public class VeiculosLocacao {
     public String getPlaca(){
         return this.placa;
     }
-    public void Addcliente(){
-        System.out.println("");
-    }
-    
     @Override
     public String toString() {
         return ("Placa do Veículo:"+this.placa+"\n Data da locacao:"+this.data);

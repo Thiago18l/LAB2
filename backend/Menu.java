@@ -121,12 +121,9 @@ public class Menu {
                         break;
                     }
                     
-                }else if (num == 5){
-                    break;
                 }
-
-                break;
             }
+            break;
 
         } while (opcao != 5);
 
