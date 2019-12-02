@@ -6,14 +6,22 @@ public class VeiculosLocacao {
     protected int dias;
     protected double valor = 75.00;
     protected String placa;
+    protected String motivo;
 
     public VeiculosLocacao(){
 
     }
-    public VeiculosLocacao(String placa, String data){
+    public VeiculosLocacao(String placa, String data, String motivo){
         setData(data);
         setPlaca(placa);
+        setMotivo(motivo);
 
+    }
+    public void setMotivo(String motivo){
+        this.motivo = motivo;
+    }
+    public String getMotivo(){
+        return this.motivo;
     }
     public void setDias(int dias){
         this.dias = dias;

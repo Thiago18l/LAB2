@@ -29,7 +29,7 @@ public class Menu {
             System.out.print("1 - Cadastro de funcionarios");
             System.out.print("\t2 - Cadastro de Clientes\n");
             System.out.println(" ");
-            System.out.print("3 - Vistoria de Veículos");
+            System.out.print("3 - Locação de Veículos");
             System.out.print("\t4 - Check-out\n");
             System.out.println(" ");
             System.out.println("5 - Sair do Sistema");
@@ -78,7 +78,8 @@ public class Menu {
                      }
                  }
                 
-                break;
+                break;// fim do case 1;
+
             case 2:
                 System.out.println("--------------Cadastro de Clientes-------------------\n");
                 System.out.println("Bem vindo.");
@@ -120,11 +121,20 @@ public class Menu {
                         novoCadastro.atualizaPj();
                         break;
                     }
-                    
-                }
-            }
-            break;
+                }// fim da condição numero 4;
+                break;
+                case 3:
+                    System.out.println("---------------------------LOCAÇÃO DE VEICULOS-------------------------");
+                    try{
+                        novoCadastro.locarVeiculo();
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
 
+                break;
+            }// fim do switch principal;
+            
         } while (opcao != 5);
 
         entrada.close();
