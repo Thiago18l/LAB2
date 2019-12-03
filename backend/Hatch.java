@@ -4,9 +4,6 @@ public class Hatch extends Carros implements Locação{
 
     protected int quantidade = 0;
 
-    public void setQuantidade(){
-        this.quantidade = quantidade;
-    }
     public int getQuantidade(){
         return this.quantidade;
     }

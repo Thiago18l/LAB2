@@ -9,7 +9,6 @@ public class Cadastro {
 
     ArrayList<Funcionario> funcionarios = new ArrayList<>();
     ArrayList<Cliente> clientes = new ArrayList<>();
-    ArrayList <VeiculosLocacao> carros = new ArrayList<>();
 
     public Cadastro() {
 
@@ -215,54 +214,4 @@ public class Cadastro {
             }
         }
     }// Fim do metodo de remoção de Funcionarios;
-
-    // Inicio dos metodos de locação
-    public void locarVeiculo(){
-        int i = 0;
-        System.out.println("------------------------LOCAÇÃO------------------------------");
-        System.out.println("Informe o tipo de veículo a ser locado:");
-        System.out.printf("1- Hatch\t");
-        System.out.println("2- Sedan\n");
-        System.out.printf("3- Suv\t");
-        System.out.println("4- Minivan\n");
-        int op = entrada.nextInt();
-        switch(op){
-            case 1:
-                String placa, data, motivo;
-                int dias;
-                Hatch [] hatchs = new Hatch[i+1];
-                hatchs[i] = new Hatch();
-                System.out.println("----------------------Veículo Hatch-----------------------");
-                System.out.println("Placa do veículo:");
-                placa = entrada.nextLine();
-                ((Hatch) hatchs[i]).setPlaca(placa);
-                System.out.println("Data da locação:");
-                data = entrada.nextLine();
-                ((Hatch)hatchs[i]).setData(data);
-                System.out.println("Quantidade de dias:");
-                dias = Integer.parseInt(entrada.nextLine());
-                ((Hatch)hatchs[i]).setDias(dias);
-                System.out.println("Motivo da locação:");
-                motivo = entrada.nextLine();
-                ((Hatch)hatchs[i]).setMotivo(motivo);
-                carros.add(hatchs[i]);
-
-                for (VeiculosLocacao j : carros){
-                    System.out.println(j);
-                }
-            break;
-
-            case 2:
-
-            break;
-
-            case 3:
-            
-            break;
-            
-            case 4:
-
-            break;
-        }
-    }
 }// Fim da classe

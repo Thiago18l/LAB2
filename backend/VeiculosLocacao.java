@@ -43,7 +43,7 @@ public class VeiculosLocacao {
     }
     @Override
     public String toString() {
-        return ("Placa do Veículo:"+this.placa+"\n Data da locacao:"+this.data);
+        return ("Placa do Veículo:"+this.getPlaca()+"\n Data da locacao:"+this.getData()+"\n");
     }
 
 

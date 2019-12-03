@@ -1,6 +1,16 @@
 
 public class Minivan extends Carros implements Locação{
 
+    private int quantidade =0;
+
+    public int getQuantidade(){
+        return this.quantidade;
+    }
+
+    public Minivan(){
+        this.quantidade++;
+    }
+
     public Minivan(String placa, int dias){
         super(placa, dias);
     }

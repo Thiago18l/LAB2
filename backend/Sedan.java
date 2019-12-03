@@ -1,8 +1,13 @@
 
 public class Sedan extends Carros implements Locação{
 
-    public Sedan(){
+    private int quantidade=0;
 
+    public int getQuantidade(){
+        return this.quantidade;
+    }
+    public Sedan(){
+        this.quantidade++;
     }
     public Sedan (String placa, int dias){
         super(placa, dias);

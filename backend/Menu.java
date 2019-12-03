@@ -4,6 +4,7 @@ public class Menu {
     public static void main(String[] args) {
 
         Cadastro novoCadastro = new Cadastro();
+        
 
         Scanner entrada = new Scanner(System.in);
         System.out.println("-------------------SYSTEM loCAR-------------------------------");
@@ -25,7 +26,8 @@ public class Menu {
 
         int opcao = 0;
         do {
-            System.out.println("-------------------MENU------------------------");
+            
+                System.out.println("-------------------MENU------------------------");
             System.out.print("1 - Cadastro de funcionarios");
             System.out.print("\t2 - Cadastro de Clientes\n");
             System.out.println(" ");
@@ -35,7 +37,6 @@ public class Menu {
             System.out.println("5 - Sair do Sistema");
             System.out.print("Digite a opção que você deseja:");
             opcao = entrada.nextInt();
-
             switch (opcao) {
             case 1:
 
@@ -125,13 +126,54 @@ public class Menu {
                 break;
                 case 3:
                     System.out.println("---------------------------LOCAÇÃO DE VEICULOS-------------------------");
-                    try{
-                        novoCadastro.locarVeiculo();
-                    }
-                    catch(InputMismatchException e){
-                        System.out.println(e.getMessage());
-                    }
+                    CadastroVeiculos nVeiculos = new CadastroVeiculos();
+                    System.out.println("Informe o tipo de veículo a ser locado:");
+                        System.out.printf("1- Hatch\t");
+                        System.out.println("2- Sedan\n");
+                        System.out.printf("3- Suv\t");
+                        System.out.println("4- Minivan\n");
+                        int op = entrada.nextInt();
 
+                        if (op == 1){
+                            try{
+                                nVeiculos.cadHatch();
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println(e.getMessage());
+                            }
+                            catch(NullPointerException e){
+                                System.out.println(e.getMessage());
+                            }
+                           break;
+                        }
+                        else if (op == 2){
+                            try{
+                                nVeiculos.cadSedan();
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                            }
+                        else if (op == 3){
+                            try{
+
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                        }
+                        else if (op == 4){
+                            try{
+                                nVeiculos.cadMinivan();
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                        }
+                
                 break;
             }// fim do switch principal;
             
