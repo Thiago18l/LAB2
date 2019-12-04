@@ -81,77 +81,80 @@ public class Cadastro {
                 System.out.println("----------------------------------------------");
                 System.out.println("Novo nome:");
                 nome = entrada.nextLine();
-                ((Fisica)f).setNome(nome);
+                ((Fisica) f).setNome(nome);
                 System.out.println("Endereço:");
-                end = entrada.nextLine();               
-                ((Fisica)f).setEnd(end);
+                end = entrada.nextLine();
+                ((Fisica) f).setEnd(end);
                 System.out.println("CPF:");
                 cpf = entrada.nextLine();
-                ((Fisica)f).setCpf(cpf);
+                ((Fisica) f).setCpf(cpf);
                 System.out.println("---------------------------------------------------");
-                clientes.set(i,f); // Alterar
+                clientes.set(i, f); // Alterar
                 break;
             }
         }
     }// Fim do metodo Atualiza pessoa fisica
 
-    public void atualizaPj(){
+    public void atualizaPj() {
         String nome, cnpj, cod;
         System.out.println("-----------------------ATUALIZAR INFORMAÇÕES--------------------");
         System.out.println("Digite o código do Cliente:");
         cod = entrada.nextLine();
-        for (int i = 0; i <clientes.size(); i++){
+        for (int i = 0; i < clientes.size(); i++) {
             Cliente j = clientes.get(i);
-            if (j.getCodCliente().equals(cod)){
+            if (j.getCodCliente().equals(cod)) {
                 System.out.println("Informações:");
-                System.out.println("Nome:" + ((Juridica)j).getNome());
-                System.out.println("Código:" + ((Juridica)j).getCodCliente());
-                System.out.println("CNPJ:" + ((Juridica)j).getCnpj());
+                System.out.println("Nome:" + ((Juridica) j).getNome());
+                System.out.println("Código:" + ((Juridica) j).getCodCliente());
+                System.out.println("CNPJ:" + ((Juridica) j).getCnpj());
                 System.out.println("----------------------------------------------");
                 System.out.println("Novo Nome:");
                 nome = entrada.nextLine();
-                ((Juridica)j).setNome(nome);
+                ((Juridica) j).setNome(nome);
                 System.out.println("Novo CNPJ:");
                 cnpj = entrada.nextLine();
-                ((Juridica)j).setCnpj(cnpj);
+                ((Juridica) j).setCnpj(cnpj);
                 System.out.println("------------------------------------------");
                 clientes.set(i, j); // altera no indice 'i'
-            }   
+            }
         }
-    }//fim do metodo atualiza pessoa juridica
-    public void mostrarFun(){
-        for (Funcionario i : funcionarios){
+    }// fim do metodo atualiza pessoa juridica
+
+    public void mostrarFun() {
+        for (Funcionario i : funcionarios) {
             System.out.println(i);
         }
     }
-    public void atualizaFun(){
+
+    public void atualizaFun() {
         String nome, end, codigo;
-        double salario; 
+        double salario;
         System.out.println("-------------------------ATUALIZAR DADOS FUNCIONARIO------------------------------");
         System.out.println("Digite o Código do funcionario:");
         codigo = entrada.nextLine();
-        for (int i = 0; i<funcionarios.size();i++){
+        for (int i = 0; i < funcionarios.size(); i++) {
             Funcionario f = funcionarios.get(i);
-            if (f.getCodFun().equals(codigo)){
+            if (f.getCodFun().equals(codigo)) {
                 System.out.println("Informações:");
-                System.out.println("Nome:"+((Funcionario)f).getNome());
-                System.out.println("Endereço:"+((Funcionario)f).getEnd());
-                System.out.println("Remuneração atual:"+((Funcionario)f).getSalario());
-                System.out.println("Data de entrada:"+((Funcionario)f).getData());
+                System.out.println("Nome:" + ((Funcionario) f).getNome());
+                System.out.println("Endereço:" + ((Funcionario) f).getEnd());
+                System.out.println("Remuneração atual:" + ((Funcionario) f).getSalario());
+                System.out.println("Data de entrada:" + ((Funcionario) f).getData());
                 System.out.println("---------------------------------------------------------------");
                 System.out.println("Novo nome:");
                 nome = entrada.nextLine();
-                ((Funcionario)f).setNome(nome);
+                ((Funcionario) f).setNome(nome);
                 System.out.println("Novo endereço:");
                 end = entrada.nextLine();
-                ((Funcionario)f).setEnd(end);
+                ((Funcionario) f).setEnd(end);
                 System.out.println("Nova remuneração:");
-                salario =  Double.parseDouble(entrada.nextLine());
-                ((Funcionario)f).setSalario(salario);
-                funcionarios.set(i,f);
+                salario = Double.parseDouble(entrada.nextLine());
+                ((Funcionario) f).setSalario(salario);
+                funcionarios.set(i, f);
             }
         }
     }// Fim do metodo atualiza Funcionarios.
+
     public void addFuncionario() {
         String nome, end, data, codFun;
         double salario;

@@ -1,5 +1,4 @@
 
-
 public class VeiculosLocacao {
 
     protected String data;
@@ -8,45 +7,53 @@ public class VeiculosLocacao {
     protected String placa;
     protected String motivo;
 
-    public VeiculosLocacao(){
+
+    public VeiculosLocacao() {
 
     }
-    public VeiculosLocacao(String placa, String data, String motivo){
+
+    public VeiculosLocacao(String placa, String data, String motivo) {
         setData(data);
         setPlaca(placa);
         setMotivo(motivo);
 
     }
-    public void setMotivo(String motivo){
+
+    public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
-    public String getMotivo(){
+
+    public String getMotivo() {
         return this.motivo;
     }
-    public void setDias(int dias){
+
+    public void setDias(int dias) {
         this.dias = dias;
     }
-    public int getDias(){
+
+    public int getDias() {
         return this.dias;
     }
-    public void setData(String data){
+
+    public void setData(String data) {
         this.data = data;
     }
-    public String getData(){
+
+    public String getData() {
         return this.data;
     }
-    public void setPlaca(String placa){
+
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
-    public String getPlaca(){
+
+    public String getPlaca() {
         return this.placa;
     }
+
     @Override
     public String toString() {
-        return ("Placa do Veículo:"+this.getPlaca()+"\n Data da locacao:"+this.getData()+"\n");
+        return ("Placa do Veículo:" + this.getPlaca() + "\n Data da locacao:" + this.getData() + "\n");
     }
-
-
-
 
 }

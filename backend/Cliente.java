@@ -4,8 +4,8 @@ public class Cliente extends Pessoa {
 	protected String codCliente;
 	protected String cnpj;
 
-	public Cliente(){
-		
+	public Cliente() {
+
 	}
 
 	public Cliente(String nome, String codCliString) {
@@ -28,7 +28,8 @@ public class Cliente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return  "Código do Cliente:"+this.getCodCliente()+"\n Nome:"+this.getNome()+"\n Endereço:"+this.getEnd();
+		return "Código do Cliente:" + this.getCodCliente() + "\n Nome:" + this.getNome() + "\n Endereço:"
+				+ this.getEnd();
 	}
 
 }

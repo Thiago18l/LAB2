@@ -4,7 +4,7 @@ public class Menu {
     public static void main(String[] args) {
 
         Cadastro novoCadastro = new Cadastro();
-        
+        CadastroVeiculos nVeiculos = new CadastroVeiculos();
 
         Scanner entrada = new Scanner(System.in);
         System.out.println("-------------------SYSTEM loCAR-------------------------------");
@@ -26,13 +26,13 @@ public class Menu {
 
         int opcao = 0;
         do {
-            
-                System.out.println("-------------------MENU------------------------");
+
+            System.out.println("-------------------MENU------------------------");
             System.out.print("1 - Cadastro de funcionarios");
             System.out.print("\t2 - Cadastro de Clientes\n");
             System.out.println(" ");
             System.out.print("3 - Locação de Veículos");
-            System.out.print("\t4 - Check-out\n");
+            System.out.print("\t4 - Vistoria\n");
             System.out.println(" ");
             System.out.println("5 - Sair do Sistema");
             System.out.print("Digite a opção que você deseja:");
@@ -54,31 +54,27 @@ public class Menu {
                     } catch (InputMismatchException e) {
                         System.out.println(e.getMessage());
                     }
-                }
-                else if (n == 2) {
-                    try{
+                } else if (n == 2) {
+                    try {
                         novoCadastro.removeFun();
-                    }
-                    catch(InputMismatchException e){
+                    } catch (InputMismatchException e) {
                         System.out.println(e.getMessage());
                     }
-                 }else if (n == 3){
-                     try{
+                } else if (n == 3) {
+                    try {
                         novoCadastro.atualizaFun();
-                     }
-                     catch(InputMismatchException e){
-                         System.out.println(e.getMessage());
-                     }
-                     
-                 }else if (n == 4){
-                     try{
-                         novoCadastro.mostrarFun();
-                     }
-                     catch(InputMismatchException e){
-                         System.out.println(e.getMessage());
-                     }
-                 }
-                
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                } else if (n == 4) {
+                    try {
+                        novoCadastro.mostrarFun();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+
                 break;// fim do case 1;
 
             case 2:
@@ -108,75 +104,86 @@ public class Menu {
                     System.out.println(
                             "OBS: Para a remoção de clientes você tem que colocar o código do cliente seja ele\n Pessoa física ou Jurídica.");
                     novoCadastro.remover();
-                }else if (num == 4){
+                } else if (num == 4) {
                     System.out.println("-------------------------ATUALIZAÇÃO DE DADOS----------------------------");
                     System.out.printf("1- Pessoa Física");
                     System.out.println("\t\t2- Pessoa Juridica");
                     System.out.println("Opção:");
                     opcao = entrada.nextInt();
-                    switch(opcao){
-                        case 1:
+                    switch (opcao) {
+                    case 1:
                         novoCadastro.atualizaPf();
                         break;
-                        case 2:
+                    case 2:
                         novoCadastro.atualizaPj();
                         break;
                     }
-                }// fim da condição numero 4;
+                } // fim da condição numero 4;
                 break;
-                case 3:
-                    System.out.println("---------------------------LOCAÇÃO DE VEICULOS-------------------------");
-                    CadastroVeiculos nVeiculos = new CadastroVeiculos();
-                    System.out.println("Informe o tipo de veículo a ser locado:");
-                        System.out.printf("1- Hatch\t");
-                        System.out.println("2- Sedan\n");
-                        System.out.printf("3- Suv\t");
-                        System.out.println("4- Minivan\n");
-                        int op = entrada.nextInt();
-
-                        if (op == 1){
-                            try{
-                                nVeiculos.cadHatch();
-                            }
-                            catch(InputMismatchException e){
-                                System.out.println(e.getMessage());
-                            }
-                            catch(NullPointerException e){
-                                System.out.println(e.getMessage());
-                            }
-                           break;
-                        }
-                        else if (op == 2){
-                            try{
-                                nVeiculos.cadSedan();
-                            }
-                            catch(InputMismatchException e){
-                                System.out.println(e.getMessage());
-                            }
-                            break;
-                            }
-                        else if (op == 3){
-                            try{
-
-                            }
-                            catch(InputMismatchException e){
-                                System.out.println(e.getMessage());
-                            }
-                            break;
-                        }
-                        else if (op == 4){
-                            try{
-                                nVeiculos.cadMinivan();
-                            }
-                            catch(InputMismatchException e){
-                                System.out.println(e.getMessage());
-                            }
-                            break;
-                        }
+            case 3:
+                System.out.println("---------------------------LOCAÇÃO DE VEICULOS-------------------------");
                 
+                System.out.println("Informe o tipo de veículo a ser locado:");
+                System.out.printf("1- Hatch\t");
+                System.out.println("2- Sedan\n");
+                System.out.printf("3- Suv\t");
+                System.out.println("4- Minivan\n\n5- Remoção de Veículos\nOpção:");
+                int op = entrada.nextInt();
+
+                if (op == 1) {
+                    try {
+                        nVeiculos.cadHatch();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    } catch (NullPointerException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                } else if (op == 2) {
+                    try {
+                        nVeiculos.cadSedan();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                } else if (op == 3) {
+                    try {
+                        nVeiculos.cadSuv();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                } else if (op == 4) {
+                    try {
+                        nVeiculos.cadMinivan();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                }
+                else if (op == 5){
+                    nVeiculos.removerVeiculo();
+                }
+
+                break;
+                case 4:
+                    System.out.println("--------------------------- Vistoria --------------------------");
+                    System.out.println("1 - Verificar condições do Veículo\t\t 2 -  Devolver Veículo");
+                    System.out.println("Opção:");
+                    num = entrada.nextInt();
+                    if (num == 1){
+
+                    }else if(num == 2){
+                        String placa;
+                        System.out.println("Digite a Placa do Veículo a ser devolvido:");
+                         placa = entrada.nextLine();
+                        nVeiculos.devolucao(placa);
+                    }else if (num !=1 && num !=2){
+                        return;
+                    }
                 break;
             }// fim do switch principal;
-            
+
         } while (opcao != 5);
 
         entrada.close();
