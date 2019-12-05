@@ -12,25 +12,11 @@ public class Sedan extends Carros implements Locação{
     public Sedan (String placa, int dias){
         super(placa, dias);
     }
-    @Override
-    public void opcionais() {
-        if (this.getBBconforto() != 0) {
-            System.out.println("Bebe conforto R$:" + this.getBBconforto());
-        }
-        if (this.getCadeirinha() != 0) {
-            System.out.println("Cadeirinha R$:" + this.getCadeirinha());
-        }
-        if (this.getAssento() != 0) {
-            System.out.println("Assendo de Elevação R$:" + this.getAssento());
-        }
-        if (this.getGps() != 0) {
-            System.out.println("GPS R$:" + this.getGps());
-        }
-    }
+ 
 
     @Override
     public double ValorAluguel() {
-            double value = (this.valor*0.10);
+            double value = (this.getValor()*1.10);
             double res = (value*this.getDias());
         return res;
     }

@@ -6,6 +6,7 @@ public class VeiculosLocacao {
     protected double valor = 75.00;
     protected String placa;
     protected String motivo;
+    protected String diaVistoria;
 
 
     public VeiculosLocacao() {
@@ -17,6 +18,19 @@ public class VeiculosLocacao {
         setPlaca(placa);
         setMotivo(motivo);
 
+    }
+    /**
+     * @return the valor
+     */
+    public double getValor() {
+        return valor;
+    }
+
+    public void setDiaVistoria(String diaVistoria) {
+        this.diaVistoria = diaVistoria;
+    }
+    public String getDiaVistoria() {
+        return diaVistoria;
     }
 
     public void setMotivo(String motivo) {

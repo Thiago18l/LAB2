@@ -16,24 +16,8 @@ public class Suv extends Carros implements Locação {
     }
 
     @Override
-    public void opcionais() {
-        if (this.getBBconforto() != 0) {
-            System.out.println("Bebe conforto R$:" + this.getBBconforto());
-        }
-        if (this.getCadeirinha() != 0) {
-            System.out.println("Cadeirinha R$:" + this.getCadeirinha());
-        }
-        if (this.getAssento() != 0) {
-            System.out.println("Assendo de Elevação R$:" + this.getAssento());
-        }
-        if (this.getGps() != 0) {
-            System.out.println("GPS R$:" + this.getGps());
-        }
-    }
-
-    @Override
     public double ValorAluguel() {
-        double value = (this.valor * 0.15);
+        double value = (this.getValor()* 1.15);
         double res = (value * getDias());
         return res;
     }

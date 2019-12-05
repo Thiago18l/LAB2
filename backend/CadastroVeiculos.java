@@ -1,15 +1,29 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CadastroVeiculos implements Locação {
-
+    private double faturamento=0;
     ArrayList<Carros> locacao = new ArrayList<>();
     Scanner entrada = new Scanner(System.in);
 
+    /**
+     * @param faturamento the faturamento to set
+     */
+    public void setFaturamento(double faturamento) {
+        this.faturamento = faturamento;
+    }
+    /**
+     * @return the faturamento
+     */
+    public double getFaturamento() {
+        return faturamento;
+    }
     public CadastroVeiculos() {
 
     }
-    public CadastroVeiculos(String placa){
+
+    public CadastroVeiculos(String placa) {
 
     }
 
@@ -19,31 +33,6 @@ public class CadastroVeiculos implements Locação {
 
     public boolean getStatus() {
         return this.status;
-    }
-
-    @Override
-    public double klometragem(String placa) {
-        for (int i = 0; i < locacao.size(); i++) {
-            Object j = locacao.get(i);
-            if (j instanceof Hatch) {
-                if (j.getPlaca().equals(placa)) {
-                    return j.getKm();
-                }
-            } else if (j instanceof Sedan) {
-                if (j.getPlaca().equals(placa)) {
-                    return j.getKm();
-                }
-            } else if (j instanceof Suv) {
-                if (j.getPlaca().equals(placa)) {
-                    return j.getKm();
-                }
-            } else if (j instanceof Minivan) {
-                if (j.getPlaca().equals(placa)) {
-                    return j.getKm();
-                }
-            }
-        }
-        return 0;
     }
 
     public ArrayList getVeiculosLocacao() {
@@ -59,23 +48,27 @@ public class CadastroVeiculos implements Locação {
         hatch[i] = new Hatch();
         System.out.println("----------------------Veículo Hatch-----------------------");
         System.out.println("Placa do veículo:");
-        placa = entrada.nextLine();
+        placa = entrada.next();
         ((Hatch) hatch[i]).setPlaca(placa);
         System.out.println("Data da locação:");
-        data = entrada.nextLine();
+        data = entrada.next();
         ((Hatch) hatch[i]).setData(data);
-        System.out.println("Km atual do Veículo:");
-        km = Double.parseDouble(entrada.nextLine());
-        ((Hatch) hatch[i]).setKm(km);
+        try {
+            System.out.println("Km atual do Veículo:");
+            km = entrada.nextDouble();
+            ((Hatch) hatch[i]).setKm(km);
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
         try {
             System.out.println("Quantidade de dias:");
-            dias = Integer.parseInt(entrada.nextLine());
+            dias = entrada.nextInt();
             ((Hatch) hatch[i]).setDias(dias);
         } catch (NumberFormatException e) {
             System.out.println("Apenas números");
         }
         System.out.println("Motivo da locação:");
-        motivo = entrada.nextLine();
+        motivo = entrada.next();
         ((Hatch) hatch[i]).setMotivo(motivo);
         System.out.println("Deseja adicionar algum Opcional?");
         System.out.println("1- Sim\t\t2- Não\n");
@@ -116,23 +109,27 @@ public class CadastroVeiculos implements Locação {
         sedan[i] = new Sedan();
         System.out.println("------------------------Cadastro de Sedan-----------------------");
         System.out.println("Placa do veículo:");
-        placa = entrada.nextLine();
+        placa = entrada.next();
         ((Sedan) sedan[i]).setPlaca(placa);
         System.out.println("Data da locação:");
-        data = entrada.nextLine();
+        data = entrada.next();
         ((Sedan) sedan[i]).setData(data);
-        System.out.println("Kilometragem do Carro:");
-        km = Double.parseDouble(entrada.nextLine());
-        ((Sedan) sedan[i]).setKm(km);
+        try {
+            System.out.println("Kilometragem do Carro:");
+            km = entrada.nextDouble();
+            ((Sedan) sedan[i]).setKm(km);
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
         try {
             System.out.println("Quantidade de dias:");
-            dias = Integer.parseInt(entrada.nextLine());
+            dias = entrada.nextInt();
             ((Sedan) sedan[i]).setDias(dias);
         } catch (NumberFormatException e) {
             System.out.println("Apenas números");
         }
         System.out.println("Motivo da locação:");
-        motivo = entrada.nextLine();
+        motivo = entrada.next();
         ((Sedan) sedan[i]).setMotivo(motivo);
         System.out.println("Deseja adicionar algum Opcional?");
         System.out.println("1- Sim\t\t2- Não\n");
@@ -172,23 +169,27 @@ public class CadastroVeiculos implements Locação {
         Suv[] suvs = new Suv[i + 1];
         suvs[i] = new Suv();
         System.out.println("Placa do veículo:");
-        placa = entrada.nextLine();
+        placa = entrada.next();
         ((Suv) suvs[i]).setPlaca(placa);
         System.out.println("Data da locação:");
-        data = entrada.nextLine();
+        data = entrada.next();
         ((Suv) suvs[i]).setData(data);
-        System.out.println("Digite a Kilometragem do Veículo");
-        km = Double.parseDouble(entrada.nextLine());
-        ((Suv) suvs[i]).setKm(km);
+        try {
+            System.out.println("Digite a Kilometragem do Veículo");
+            km = entrada.nextDouble();
+            ((Suv) suvs[i]).setKm(km);
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
+        }
         try {
             System.out.println("Quantidade de dias:");
-            dias = Integer.parseInt(entrada.nextLine());
+            dias = entrada.nextInt();
             ((Suv) suvs[i]).setDias(dias);
         } catch (NumberFormatException e) {
             System.out.println("Apenas números");
         }
         System.out.println("Motivo da locação:");
-        motivo = entrada.nextLine();
+        motivo = entrada.next();
         ((Suv) suvs[i]).setMotivo(motivo);
         System.out.println("Deseja adicionar algum Opcional?");
         System.out.println("1- Sim\t\t2- Não\n");
@@ -228,23 +229,27 @@ public class CadastroVeiculos implements Locação {
         Minivan[] minivans = new Minivan[i + 1];
         minivans[i] = new Minivan();
         System.out.println("Placa do veículo:");
-        placa = entrada.nextLine();
+        placa = entrada.next();
         ((Minivan) minivans[i]).setPlaca(placa);
         System.out.println("Data da locação:");
-        data = entrada.nextLine();
+        data = entrada.next();
         ((Minivan) minivans[i]).setData(data);
-        System.out.println("KM Atual do Veículo:");
-        km = Double.parseDouble(entrada.nextLine());
-        ((Minivan) minivans[i]).setKm(km);
+        try {
+            System.out.println("KM Atual do Veículo:");
+            km = entrada.nextDouble();
+            ((Minivan) minivans[i]).setKm(km);
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
         try {
             System.out.println("Quantidade de dias:");
-            dias = Integer.parseInt(entrada.nextLine());
+            dias = entrada.nextInt();
             ((Minivan) minivans[i]).setDias(dias);
         } catch (NumberFormatException e) {
             System.out.println("Apenas números");
         }
         System.out.println("Motivo da locação:");
-        motivo = entrada.nextLine();
+        motivo = entrada.next();
         ((Minivan) minivans[i]).setMotivo(motivo);
         System.out.println("Deseja adicionar algum Opcional?");
         System.out.println("1- Sim\t\t2- Não\n");
@@ -277,17 +282,16 @@ public class CadastroVeiculos implements Locação {
         }
     }
 
+    /**
+     * Função de remover Veículos
+     */
     public void removerVeiculo() {
         String placa;
-        System.out.println(
-                "1-Remoção de Veiculo Hatch\t\t 2 - Remoção de Veículo Sedan\n\n3- Remoção de Veículo SUV\t\t 4 - Remoção de Veículo Minivan");
-        int num = entrada.nextInt();
-        switch (num) {
-        case 1:
+        try {
             System.out.println("Digite a placa do Veiculo:");
-            placa = entrada.nextLine();
+            placa = entrada.next();
             for (int i = 0; i < locacao.size(); i++) {
-                Hatch j = locacao.get(i);
+                Carros j = locacao.get(i);
                 if (j.getPlaca().equals(placa)) {
                     locacao.remove(j);
                     System.out.println("Veiculo removido com Sucesso");
@@ -295,126 +299,166 @@ public class CadastroVeiculos implements Locação {
                     System.out.println("Veículo Não encontrado");
                 }
             }
-            break;
-        case 2:
-            System.out.println("Digite a placa do Veiculo:");
-            placa = entrada.nextLine();
-            for (int i = 0; i < locacao.size(); i++) {
-                Sedan j = locacao.get(i);
-                if (j.getPlaca().equals(placa)) {
-                    locacao.remove(j);
-                    System.out.println("Veiculo removido com Sucesso");
-                } else {
-                    System.out.println("Veículo Não encontrado");
-                }
-            }
-            break;
-        case 3:
-            System.out.println("Digite a placa do Veiculo:");
-            placa = entrada.nextLine();
-            for (int i = 0; i < locacao.size(); i++) {
-                Suv j = locacao.get(i);
-                if (j.getPlaca().equals(placa)) {
-                    locacao.remove(j);
-                    System.out.println("Veiculo removido com Sucesso");
-                } else {
-                    System.out.println("Veículo Não encontrado");
-                }
-            }
-            break;
-        case 4:
-            System.out.println("Digite a placa do Veiculo:");
-            placa = entrada.nextLine();
-            for (int i = 0; i < locacao.size(); i++) {
-                Minivan j = locacao.get(i);
-                if (j.getPlaca().equals(placa)) {
-                    locacao.remove(j);
-                    System.out.println("Veiculo removido com Sucesso");
-                } else {
-                    System.out.println("Veículo Não encontrado");
-                }
-            }
-            break;
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
         }
     }// Fim do metodo remover Veiculos
 
-    public void devolucao(String placa) {
-        System.out.println("1- Hatch\t\t 2- Sedan\n\n3- SUV\t\t 4- Minivan");
-        int op = entrada.nextInt();
-        switch (op) {
-        case 1:
-            for (int i = 0; i < locacao.size(); i++) {
-                Hatch hatch = (Hatch) locacao.get(i);
-                if (hatch instanceof Hatch){
-                    if (hacth.getPlaca().equals(placa)){
-                        System.out.println("Deseja efetuar a Devolução do Veículo?");
-                        System.out.println("1- Sim\t\t 2- Não");
-                        int num = entrada.nextInt();
-                        if (num == 1) {
-                            hatch.setDev(true);
-                            locacao.set(i, hatch);
-                        } else if (num != 1) {
-                            return;
-                        }
-                    }
-                }
-            }
-            break;
-        case 2:
-            for (int i = 0; i < locacao.size(); i++) {
-                Sedan sedan =(Sedan) locacao.get(i);
-                if (sedan instanceof Sedan) {
-                    if (sedan.getPlaca().equals(placa)) {
-                        System.out.println("Deseja efetuar a Devolução do Veículo?");
-                        System.out.println("1- Sim\t\t 2- Não");
-                        int num = entrada.nextInt();
-                        if (num == 1) {
-                            sedan.setDev(true);
-                            locacao.set(i, sedan);
-                        } else if (num != 1) {
-                            return;
-                        }
-                    }
-                }
-            }
-            break;
-        case 3:
-            for (int i = 0; i < locacao.size(); i++) {
-                Suv suv = (Suv) locacao.get(i);
-                if (suv instanceof Suv) {
-                    if (suv.getPlaca().equals(placa)) {
-                        System.out.println("Deseja efetuar a Devolução do Veículo?");
-                        System.out.println("1- Sim\t\t 2- Não");
-                        int num = entrada.nextInt();
-                        if (num == 1) {
-                            suv.setDev(true);
-                            locacao.set(i, suv);
-                        } else if (num != 1) {
-                            return;
-                        }
-                    }
-                }
-            }
-            break;
-        case 4:
-            for (int i = 0; i < locacao.size(); i++) {
-                Minivan minivan = (Minivan) locacao.get(i);
-                if (minivan instanceof Minivan) {
-                    if (minivan.getPlaca().equals(placa)) {
-                        System.out.println("Deseja efetuar a Devolução do Veículo?");
-                        System.out.println("1- Sim\t\t 2- Não");
-                        int num = entrada.nextInt();
-                        if (num == 1) {
-                            minivan.setDev(true);
-                            locacao.set(i, minivan);
-                        } else if (num != 1) {
-                            return;
-                        }
-                    }
-                }
-            }
-            break;
-        }// Fim do switch;
+    /**
+     * Função Mostrar Frota imprime todos os veículos da frota
+     */
+    public void mostrarFrota() {
+        for (int i = 0; i < locacao.size(); i++)
+            ;
+        for (Carros j : locacao) {
+            System.out.println(j);
+        }
+    }
 
+    public void pagamento() {
+        String placa;
+        int num;
+        System.out.println("--------------------------------------FATURA-----------------------------");
+        System.out.println("");
+        System.out.println("Digite a placa do veículo");
+        placa = entrada.next();
+        for (int i = 0; i < locacao.size(); i++) {
+            Carros j = locacao.get(i);
+            if (j.getPlaca().equals(placa)) {
+                if (j.getDev() == true) {
+                    System.out.println(j);
+                    System.out.println("--------------------------------------------------\n\n");
+                    System.out.println("Valor do aluguel R$: " + j.ValorAluguel());
+                    System.out.println("Informações sobre a vistoria do Veículo:");
+                    if (j.getStatus() == 3) {
+                        System.out.println("Condição do Veículo: Danificado");
+                    } else if (j.getStatus() == 5) {
+                        System.out.println("Condição do Veículo: Problemas Mecânicos");
+                    } else if (j.getStatus() == 8) {
+                        System.out.println("Condição do Veículo: em Bom estado");
+                    } else if (j.getStatus() == 10) {
+                        System.out.println("Condição do Veículo: Em perfeito estado.");
+                    }
+                    System.out.println("Opcionais:");
+                    System.out.println("Bebe conforto R$: " + j.getBBconforto());
+                    System.out.println("Cadeirinha R$:" + j.getCadeirinha());
+                    System.out.println("Assento de elevação R$: " + j.getAssento());
+                    System.out.println("GPS R$: " + j.getGps());
+                    System.out.println("--------------------------------------------------------\n\n");
+                    double total = (j.ValorAluguel() + j.getBBconforto() + j.getCadeirinha() + j.getAssento()
+                            + j.getGps());
+                    System.out.println("Valor total R$: " + total);
+                    System.out.println("Deseja realizar o Pagamento?\n 1- Sim\t\t 2- Não");
+                    num = entrada.nextInt();
+                    if (num == 1) {
+                        System.out.println("Pagamento:");
+                        double valor = entrada.nextDouble();
+                        if (valor < total) {
+                            System.out.println("Por favor valor insuficiente");
+                        } else if (valor == total) {
+                            System.out.println("Pagamento efetuado com sucesso!");
+                            setFaturamento(total);
+                        } else if (valor > total) {
+                            double ntotal = (valor - total);
+                            System.out.println("Troco R$:" + ntotal);
+                        }
+
+                    }
+                } else if (j.getDev() == false) {
+                    System.out.println("Devolva o Veículo antes de vir checar a fatura");
+                    break;
+                }
+            } else if (placa != j.getPlaca()) {
+                System.out.println("Veículo não encontrado!");
+                return;
+            }
+        }
+
+    }
+
+    public void condicoes() {
+        System.out.println("-----------------------CONDIÇÃO DO VEÍCULO-----------------------");
+        String placa, data;
+        int op = 0;
+        int value;
+        System.out.println(
+                "--------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Digite a placa do Veículo a ser Inspecionado:");
+        placa = entrada.next();
+        for (int i = 0; i < locacao.size(); i++) {
+            Carros j = locacao.get(i);
+            if (j.getPlaca().equals(placa)) {
+                System.out.println("OBS: Todo Veículo sai da loCAR em perfeitas condições!");
+                System.out.println("Digite a condição do veículo:");
+                System.out.println(
+                        "1- Danificado \t\t 2 - Problemas mecanicos\n\n 3 - Estado bom\t\t 4 - retornar ao menu anterior.");
+                System.out.println("Opção:");
+                op = entrada.nextInt();
+                if (op == 1) {
+                    System.out.println("Informe a data da vistoria:");
+                    data = entrada.next();
+                    j.setDiaVistoria(data);
+                    System.out.println(j);
+                    value = (j.getStatus() - 7);
+                    j.setStatus(value);
+                    locacao.set(i, j);
+                    System.out.println("Vistoria efetuada com sucesso!\n\nEstado do veículo é: Danificado");
+                } else if (op == 2) {
+                    System.out.println("Informe a data da vistoria:");
+                    data = entrada.next();
+                    j.setDiaVistoria(data);
+                    System.out.println(j);
+                    value = (j.getStatus() - 5);
+                    j.setStatus(value);
+                    locacao.set(i, j);
+                    System.out
+                            .println("Vistoria efetuada com sucesso!\n\nEstado do veículo é: Com problemas mecanicos.");
+                } else if (op == 3) {
+                    System.out.println("Informe a data da vistoria:");
+                    data = entrada.next();
+                    j.setDiaVistoria(data);
+                    System.out.println(j);
+                    value = (j.getStatus() - 2);
+                    j.setStatus(value);
+                    locacao.set(i, j);
+                    System.out.println("Vistoria efetuada com sucesso!\n\nEstado do veículo é: Em bom estado");
+                } else if (op != 1 && op != 2 && op != 3) {
+                    return;
+                }
+
+            }
+        }
+    }
+    public double valores(){
+        double x = 0.0;
+        x += this.getFaturamento();
+        return x;
+    }
+
+    public void devolucao() {
+        int i = 0;
+        String placa;
+        double km;
+        System.out.println("Digite a placa do veículo a ser Devolvido:");
+        placa = entrada.next();
+        for (i = 0; i < locacao.size(); i++) {
+            Carros j = locacao.get(i);
+            if (j.getPlaca().equals(placa)) {
+                try {
+                    System.out.println("Km do Veículo antes de ser locado: " + j.getKm() + " Km");
+                    System.out.println("Km atual do veículo:");
+                    km = entrada.nextDouble();
+                    j.setKm(km);
+                    j.setDev(true);
+                    System.out.println("Devolução efetuada com sucesso");
+                    locacao.set(i, j);
+                } catch (NumberFormatException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            } else if (j.getPlaca() != placa) {
+                System.out.println("Veiculo não encontrado");
+            }
+        }
     }
 }// Fim da Classe Cadastro de Veiculos.

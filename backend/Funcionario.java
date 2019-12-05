@@ -46,5 +46,9 @@ public class Funcionario extends Pessoa {
 	public void setCodFun(String codFun) {
 		this.codFun = codFun;
 	}
+	public double getTotal(){
+		double total = this.getSalario(); 
+		return total;
+	}
 
 }

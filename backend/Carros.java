@@ -9,7 +9,7 @@ public abstract class Carros extends VeiculosLocacao implements Locação {
     private double asseleve = 0;
     private double gps = 0;
     private double km;
-    private int status;
+    private int status = 10;
     private boolean dev = false;
     public Carros() {
 
@@ -64,9 +64,9 @@ public abstract class Carros extends VeiculosLocacao implements Locação {
         return this.gps;
     }
 
-    public void tamFrota() {
+    public int tamFrota() {
         int total = (hatch.getQuantidade() + sedan.getQuantidade() + suv.getQuantidade() + minivan.getQuantidade());
-        System.out.println("O tamanho da frota é:" + total + " de Veículos");
+        return total;
     }
 
     @Override

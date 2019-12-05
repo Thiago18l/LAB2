@@ -13,6 +13,13 @@ public class Cadastro {
     public Cadastro() {
 
     }
+    public  double salarioFun(){
+        double value =0.0;
+        for (Funcionario i: funcionarios){
+            value += i.getSalario();
+        }
+        return value;
+    }
 
     public void addClienteF() {
         String nome, cpf, end, cod;
@@ -94,6 +101,29 @@ public class Cadastro {
             }
         }
     }// Fim do metodo Atualiza pessoa fisica
+    public void buscaCliente(String cod){
+        for (int i =0; i<clientes.size(); i++){
+                Cliente j = clientes.get(i);
+                if (j.getCodCliente().equals(cod)){
+                    System.out.println(j);
+                }else if (cod != j.getCodCliente()){
+                    System.out.println("Código não encontrado;");
+                }
+        }
+    }   
+    public void buscaFuncionario(){
+        System.out.println("Digite o Código do Funcionario");
+        String cod = entrda.nextLine();
+        for(int i=0; i<funcionarios.size(); i++){
+            Funcionario j = funcionarios.get(i);
+            if (j.getCodFun().equals(cod)){
+                System.out.println("Funcionario:"+j.getNome());
+                System.out.println("Código do Funcionario:"+j.getCodFun());
+            }else if (cod != j.getCodFun){
+                System.out.println("Código não encontrado");
+            }
+        }
+    }
 
     public void atualizaPj() {
         String nome, cnpj, cod;

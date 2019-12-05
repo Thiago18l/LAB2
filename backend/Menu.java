@@ -5,6 +5,7 @@ public class Menu {
 
         Cadastro novoCadastro = new Cadastro();
         CadastroVeiculos nVeiculos = new CadastroVeiculos();
+        
 
         Scanner entrada = new Scanner(System.in);
         System.out.println("-------------------SYSTEM loCAR-------------------------------");
@@ -32,9 +33,9 @@ public class Menu {
             System.out.print("\t2 - Cadastro de Clientes\n");
             System.out.println(" ");
             System.out.print("3 - Locação de Veículos");
-            System.out.print("\t4 - Vistoria\n");
+            System.out.print("\t\t4 - Vistoria\n");
             System.out.println(" ");
-            System.out.println("5 - Sair do Sistema");
+            System.out.println("5 - Fatura Cliente \t\t 6 - Relatório loCAR\n\n7- Sair do Sistema");
             System.out.print("Digite a opção que você deseja:");
             opcao = entrada.nextInt();
             switch (opcao) {
@@ -122,12 +123,12 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("---------------------------LOCAÇÃO DE VEICULOS-------------------------");
-                
+
                 System.out.println("Informe o tipo de veículo a ser locado:");
                 System.out.printf("1- Hatch\t");
                 System.out.println("2- Sedan\n");
                 System.out.printf("3- Suv\t");
-                System.out.println("4- Minivan\n\n5- Remoção de Veículos\nOpção:");
+                System.out.println("4- Minivan\n\n5- Remoção de Veículos\t\t 6 - Mostrar Frota\n\nOpção:");
                 int op = entrada.nextInt();
 
                 if (op == 1) {
@@ -160,31 +161,105 @@ public class Menu {
                         System.out.println(e.getMessage());
                     }
                     break;
-                }
-                else if (op == 5){
-                    nVeiculos.removerVeiculo();
+                } else if (op == 5) {
+                    try {
+                        nVeiculos.removerVeiculo();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }else if (op == 6){
+                    try{
+                        nVeiculos.mostrarFrota();
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
+                    catch(NullPointerException e){
+                        System.out.println(e.getMessage());
+                    }
                 }
 
                 break;
-                case 4:
-                    System.out.println("--------------------------- Vistoria --------------------------");
-                    System.out.println("1 - Verificar condições do Veículo\t\t 2 -  Devolver Veículo");
-                    System.out.println("Opção:");
-                    num = entrada.nextInt();
-                    if (num == 1){
+            case 4:
+                System.out.println("--------------------------- Vistoria --------------------------");
+                System.out.println("1 - Verificar condições do Veículo\t\t 2 -  Devolver Veículo");
+                System.out.println("Opção:");
+                int numero = entrada.nextInt();
+                switch (numero) {
+                case 1:
+                    try {
+                        nVeiculos.condicoes();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    try {
+                        nVeiculos.devolucao();
+                    } catch (InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                }
+                break;
+                case 5:
+                    String cod;
+                    int number;
+                    try{
+                        System.out.println("----------------------------------- CHECK OUT CLIENTE-----------------------------------------");
+                        System.out.println("");
+                        try{
+                            System.out.println("Digite o Código do cliente");
+                            cod = entrada.next();
+                            novoCadastro.buscaCliente(cod);
+                            System.out.println("Deseja ir para o Pagamento?\n 1- Sim\t\t 2- Não");
+                            number = entrada.nextInt();
+                            if ( number == 1){
+                                nVeiculos.pagamento();
+                                break;
+                            }else if (number == 2){
+                                return;
+                            }else if (number != 1 && number != 2){
+                                return;
+                            }
+                        }   
+                        catch(InputMismatchException e){
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                    catch(NullPointerException e){
+                        System.out.println(e.getMessage());
+                    }
+                break;
+                case 6:
+                    System.out.println("-------------------------RELATÓRIO-------------------------------------");
+                    int o;
+                    try{
+                        System.out.println("Deseja imprimir o Faturamento?\n 1- Sim\t\t 2- Não");
+                        o = entrada.nextInt();
+                        if (o == 1){
+                            System.out.println("Salario total dos Funcionarios:\nTOTAL R$:"+novoCadastro.salarioFun());
+                        System.out.println("Valor resultante de Locações:\nTOTAL R$:"+nVeiculos.valores());
+                        }else{
+                            return;
+                        }
 
-                    }else if(num == 2){
-                        String placa;
-                        System.out.println("Digite a Placa do Veículo a ser devolvido:");
-                         placa = entrada.nextLine();
-                        nVeiculos.devolucao(placa);
-                    }else if (num !=1 && num !=2){
-                        return;
+                        
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                    }
+                    catch(NullPointerException e){
+                        System.out.println(e.getMessage());
+                    }
+                    catch(ArrayIndexOutOfBoundsException e){
+                        System.out.println(e.getMessage());
                     }
                 break;
             }// fim do switch principal;
 
-        } while (opcao != 5);
+        } while (opcao != 7);
 
         entrada.close();
 
