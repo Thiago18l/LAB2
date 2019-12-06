@@ -12,7 +12,7 @@ public class Hatch extends Carros implements Locação {
     }
 
     public Hatch(String placa, int dias, String motivo) {
-        super(placa, dias, motivo);
+        super();
     }
 
 

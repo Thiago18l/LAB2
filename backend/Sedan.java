@@ -10,7 +10,7 @@ public class Sedan extends Carros implements Locação{
         this.quantidade++;
     }
     public Sedan (String placa, int dias){
-        super(placa, dias);
+        super();
     }
  
 

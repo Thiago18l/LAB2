@@ -113,13 +113,13 @@ public class Cadastro {
     }   
     public void buscaFuncionario(){
         System.out.println("Digite o Código do Funcionario");
-        String cod = entrda.nextLine();
+        String cod = entrada.nextLine();
         for(int i=0; i<funcionarios.size(); i++){
             Funcionario j = funcionarios.get(i);
             if (j.getCodFun().equals(cod)){
                 System.out.println("Funcionario:"+j.getNome());
                 System.out.println("Código do Funcionario:"+j.getCodFun());
-            }else if (cod != j.getCodFun){
+            }else if (cod != j.getCodFun()){
                 System.out.println("Código não encontrado");
             }
         }

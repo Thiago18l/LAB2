@@ -12,7 +12,7 @@ public class Minivan extends Carros implements Locação {
     }
 
     public Minivan(String placa, int dias) {
-        super(placa, dias);
+        super();
     }
 
     @Override
