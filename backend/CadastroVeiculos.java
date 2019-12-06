@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class CadastroVeiculos implements Locação {
+public class CadastroVeiculos{
     private double faturamento=0;
     ArrayList<Carros> locacao = new ArrayList<>();
     Scanner entrada = new Scanner(System.in);
@@ -23,19 +23,7 @@ public class CadastroVeiculos implements Locação {
 
     }
 
-    public CadastroVeiculos(String placa) {
-
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public boolean getStatus() {
-        return this.status;
-    }
-
-    public ArrayList getVeiculosLocacao() {
+    public int  getVeiculosLocacao() {
         return this.locacao.size();
     }
 
